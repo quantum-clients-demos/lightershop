@@ -219,7 +219,7 @@ export default function CheckoutPage() {
                   Contact Information
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }} className="checkout-two-col">
                   <div>
                     <label style={{ fontSize: "12px", fontWeight: 600, display: "block", marginBottom: "4px" }}>
                       Full Name *
@@ -329,7 +329,7 @@ export default function CheckoutPage() {
                   )}
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }} className="checkout-two-col">
                   <div>
                     <label style={{ fontSize: "11px", fontWeight: 600, display: "block", marginBottom: "4px" }}>
                       Registered Company Name
@@ -564,6 +564,12 @@ export default function CheckoutPage() {
       <style jsx>{`
         @media (max-width: 860px) {
           .checkout-grid {
+            grid-template-columns: 1fr !important;
+            gap: 28px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .checkout-two-col {
             grid-template-columns: 1fr !important;
           }
         }

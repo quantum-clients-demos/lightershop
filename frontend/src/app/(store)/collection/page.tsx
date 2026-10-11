@@ -486,12 +486,13 @@ export default function CollectionPage() {
             </div>
 
             {/* Right: Search & Sort Controls */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <div className="collection-filter-bar" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
               {/* Search Bar */}
-              <div style={{
+              <div className="collection-search-wrapper" style={{
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
+                flex: 1,
               }}>
                 <Search size={15} style={{ position: "absolute", left: "12px", color: "var(--text-muted)" }} />
                 <input
@@ -499,6 +500,7 @@ export default function CollectionPage() {
                   placeholder="Search lighter model..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  className="collection-search-input"
                   style={{
                     padding: "8px 12px 8px 34px",
                     fontSize: "12px",
@@ -689,6 +691,15 @@ export default function CollectionPage() {
         @media (max-width: 600px) {
           .collection-grid {
             grid-template-columns: 1fr !important;
+          }
+          .collection-filter-bar {
+            width: 100% !important;
+          }
+          .collection-search-wrapper {
+            width: 100% !important;
+          }
+          .collection-search-input {
+            width: 100% !important;
           }
         }
       `}</style>

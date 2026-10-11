@@ -22,11 +22,11 @@ export function AnnouncementBar() {
       flexWrap: "wrap",
       gap: "8px",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "0 auto" }}>
-        <span>COMPLIMENTARY SHIPPING ON ORDERS OVER ₹1,999 · BUILT FOR EVERYDAY CARRY</span>
+      <div className="announcement-text" style={{ display: "flex", alignItems: "center", gap: "10px", margin: "0 auto", textAlign: "center" }}>
+        <span>COMPLIMENTARY SHIPPING OVER ₹1,999 · BUILT FOR EVERYDAY CARRY</span>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "10px" }}>
+      <div className="announcement-mode-toggle" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "10px" }}>
         <span style={{ color: "#8e8a82" }}>PURCHASE MODE:</span>
         <button
           onClick={() => setStoreMode("retail")}
@@ -54,6 +54,18 @@ export function AnnouncementBar() {
           WHOLESALE (B2B)
         </button>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .announcement-mode-toggle {
+            display: none !important;
+          }
+          .announcement-text {
+            font-size: 10px !important;
+            letter-spacing: 0.06em !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

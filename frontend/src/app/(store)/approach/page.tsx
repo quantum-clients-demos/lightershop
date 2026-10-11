@@ -230,11 +230,17 @@ export default function ApproachPage() {
           </div>
 
           <div style={{
-            border: "1px solid var(--border-light)",
+            overflowX: "auto",
+            WebkitOverflowScrolling: "touch",
             borderRadius: "4px",
-            overflow: "hidden",
             boxShadow: "var(--shadow-sm)",
           }}>
+            <div style={{
+              minWidth: "600px",
+              border: "1px solid var(--border-light)",
+              borderRadius: "4px",
+              overflow: "hidden",
+            }}>
             <div style={{
               display: "grid",
               gridTemplateColumns: "1.5fr 1fr 1fr",
@@ -309,6 +315,7 @@ export default function ApproachPage() {
                 </span>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>

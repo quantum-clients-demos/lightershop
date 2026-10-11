@@ -190,7 +190,7 @@ export function WholesaleInquiryModal({ isOpen, onClose }: WholesaleInquiryModal
                 />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }} className="modal-two-col">
                 <div>
                   <label style={{ fontSize: "12px", fontWeight: 700, display: "block", marginBottom: "4px" }}>
                     GSTIN Number (15 digits) *
@@ -236,7 +236,7 @@ export function WholesaleInquiryModal({ isOpen, onClose }: WholesaleInquiryModal
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }} className="modal-two-col">
                 <div>
                   <label style={{ fontSize: "12px", fontWeight: 700, display: "block", marginBottom: "4px" }}>
                     Contact Person *
@@ -333,6 +333,14 @@ export function WholesaleInquiryModal({ isOpen, onClose }: WholesaleInquiryModal
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 600px) {
+          .modal-two-col {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
