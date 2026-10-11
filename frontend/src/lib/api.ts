@@ -190,6 +190,11 @@ export const api = {
     });
   },
 
+  async listWholesaleApplications(status?: string): Promise<WholesaleApplication[]> {
+    const q = status ? `?status=${encodeURIComponent(status)}` : "";
+    return request<WholesaleApplication[]>(`/admin/applications${q}`);
+  },
+
   async listAllOrders(): Promise<Order[]> {
     return request("/admin/orders");
   },
@@ -200,3 +205,5 @@ export const api = {
     });
   },
 };
+
+export const apiClient = api;
