@@ -48,52 +48,61 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
       }}
     >
       {/* Product Image Stage (Podium) */}
-      <div style={{
-        position: "relative",
-        height: "330px",
-        backgroundColor: "var(--bg-podium)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "24px",
-        overflow: "hidden",
-      }}>
+      <div
+        className="card-image-stage"
+        style={{
+          position: "relative",
+          height: "330px",
+          backgroundColor: "var(--bg-podium)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+          overflow: "hidden",
+        }}
+      >
         {/* Badge */}
         {product.badge && (
-          <div style={{
-            position: "absolute",
-            top: "16px",
-            left: "16px",
-            fontSize: "10px",
-            fontWeight: 700,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "#1c1c1c",
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            padding: "4px 8px",
-            borderRadius: "2px",
-            backdropFilter: "blur(6px)",
-            zIndex: 5,
-          }}>
+          <div
+            className="card-badge"
+            style={{
+              position: "absolute",
+              top: "16px",
+              left: "16px",
+              fontSize: "10px",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#1c1c1c",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              padding: "4px 8px",
+              borderRadius: "2px",
+              backdropFilter: "blur(6px)",
+              zIndex: 5,
+            }}
+          >
             {product.badge}
           </div>
         )}
 
         {/* Wholesale savings tag */}
         {isWholesale && (
-          <div style={{
-            position: "absolute",
-            top: "16px",
-            right: "16px",
-            fontSize: "10px",
-            fontWeight: 700,
-            letterSpacing: "0.06em",
-            color: "#ffffff",
-            backgroundColor: "var(--accent-spark)",
-            padding: "4px 8px",
-            borderRadius: "2px",
-            zIndex: 5,
-          }}>
+          <div
+            className="card-savings-tag"
+            style={{
+              position: "absolute",
+              top: "16px",
+              right: "16px",
+              fontSize: "10px",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              color: "#ffffff",
+              backgroundColor: "var(--accent-spark)",
+              padding: "4px 8px",
+              borderRadius: "2px",
+              zIndex: 5,
+            }}
+          >
             SAVE {wholesaleDiscountPct}%
           </div>
         )}
@@ -149,17 +158,21 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
       </div>
 
       {/* Card Details Footer */}
-      <div style={{
-        padding: "20px 22px 24px 22px",
-        display: "flex",
-        flexDirection: "column",
-        flex: 1,
-        justifyContent: "space-between",
-        backgroundColor: "#ffffff",
-      }}>
+      <div
+        className="card-details-footer"
+        style={{
+          padding: "20px 22px 24px 22px",
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          justifyContent: "space-between",
+          backgroundColor: "#ffffff",
+        }}
+      >
         <div>
           <Link
             href={`/product/${product.slug}`}
+            className="card-title"
             style={{
               display: "block",
               fontSize: "17px",
@@ -173,33 +186,42 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
             {product.name}
           </Link>
 
-          <div style={{
-            fontSize: "13px",
-            color: "var(--text-muted)",
-            marginBottom: "16px",
-          }}>
+          <div
+            className="card-finish"
+            style={{
+              fontSize: "13px",
+              color: "var(--text-muted)",
+              marginBottom: "16px",
+            }}
+          >
             {product.finish}
           </div>
         </div>
 
         {/* Price & Action Row */}
-        <div style={{
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "space-between",
-          gap: "12px",
-          borderTop: "1px solid #f2ede5",
-          paddingTop: "16px",
-        }}>
-          <div>
+        <div
+          className="card-action-row"
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: "12px",
+            borderTop: "1px solid #f2ede5",
+            paddingTop: "16px",
+          }}
+        >
+          <div className="card-price-wrap">
             {isWholesale ? (
               <div>
-                <div style={{
-                  fontSize: "18px",
-                  fontWeight: 800,
-                  color: "var(--accent-spark)",
-                  lineHeight: 1.1,
-                }}>
+                <div
+                  className="card-price-value"
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 800,
+                    color: "var(--accent-spark)",
+                    lineHeight: 1.1,
+                  }}
+                >
                   {formatCurrency(displayPrice)}
                   <span style={{ fontSize: "11px", fontWeight: 500, color: "var(--text-muted)", marginLeft: "4px" }}>
                     / unit
@@ -211,12 +233,15 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
               </div>
             ) : (
               <div>
-                <div style={{
-                  fontSize: "19px",
-                  fontWeight: 700,
-                  color: "var(--text-main)",
-                  lineHeight: 1.1,
-                }}>
+                <div
+                  className="card-price-value"
+                  style={{
+                    fontSize: "19px",
+                    fontWeight: 700,
+                    color: "var(--text-main)",
+                    lineHeight: 1.1,
+                  }}
+                >
                   {formatCurrency(displayPrice)}
                 </div>
                 <div style={{ fontSize: "11px", color: "#8a857d", marginTop: "2px" }}>
@@ -229,6 +254,7 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
           {/* Add to Bag Button */}
           <button
             onClick={handleAdd}
+            className="card-add-btn"
             style={{
               backgroundColor: isAdded ? "var(--accent-green)" : "#141414",
               color: "#ffffff",
@@ -258,6 +284,56 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
           </button>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .card-image-stage {
+            height: 180px !important;
+            padding: 14px !important;
+          }
+          .card-badge, .card-savings-tag {
+            font-size: 9px !important;
+            padding: 3px 6px !important;
+            top: 10px !important;
+          }
+          .card-badge {
+            left: 10px !important;
+          }
+          .card-savings-tag {
+            right: 10px !important;
+          }
+          .card-details-footer {
+            padding: 12px 10px 14px 10px !important;
+          }
+          :global(.card-title) {
+            font-size: 14px !important;
+            margin-bottom: 2px !important;
+          }
+          .card-finish {
+            font-size: 11px !important;
+            margin-bottom: 8px !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+          }
+          .card-action-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 8px !important;
+            padding-top: 10px !important;
+          }
+          .card-price-value {
+            font-size: 16px !important;
+          }
+          .card-add-btn {
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 8px 6px !important;
+            font-size: 11px !important;
+            letter-spacing: 0.03em !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

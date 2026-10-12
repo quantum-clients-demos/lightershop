@@ -306,7 +306,7 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Product Hero Section */}
-      <main className="container" style={{ padding: "60px 24px 100px 24px" }}>
+      <main className="container pdp-main-wrapper" style={{ padding: "60px 24px 100px 24px" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "1.1fr 1fr",
@@ -314,8 +314,8 @@ export default function ProductDetailPage() {
           alignItems: "flex-start",
         }} className="pdp-grid">
           {/* Left Column: Image Showcase Stage */}
-          <div style={{ position: "sticky", top: "100px" }}>
-            <div style={{
+          <div style={{ position: "sticky", top: "100px" }} className="pdp-sticky-col">
+            <div className="pdp-podium" style={{
               backgroundColor: "var(--bg-podium)",
               borderRadius: "4px",
               padding: "48px 36px",
@@ -364,7 +364,7 @@ export default function ProductDetailPage() {
                 </div>
               )}
 
-              <div style={{
+              <div className="pdp-hero-image-box" style={{
                 position: "relative",
                 width: "320px",
                 height: "420px",
@@ -382,14 +382,14 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Micro feature badges under image */}
-            <div style={{
+            <div className="pdp-badges-row" style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
               gap: "12px",
               marginTop: "20px",
               textAlign: "center",
             }}>
-              <div style={{
+              <div className="pdp-badge-card" style={{
                 background: "#ffffff",
                 padding: "14px",
                 borderRadius: "3px",
@@ -401,7 +401,7 @@ export default function ProductDetailPage() {
                 <div style={{ color: "var(--text-muted)" }}>Precision wick spark</div>
               </div>
 
-              <div style={{
+              <div className="pdp-badge-card" style={{
                 background: "#ffffff",
                 padding: "14px",
                 borderRadius: "3px",
@@ -413,7 +413,7 @@ export default function ProductDetailPage() {
                 <div style={{ color: "var(--text-muted)" }}>Balanced hand weight</div>
               </div>
 
-              <div style={{
+              <div className="pdp-badge-card" style={{
                 background: "#ffffff",
                 padding: "14px",
                 borderRadius: "3px",
@@ -645,7 +645,7 @@ export default function ProductDetailPage() {
             )}
 
             {/* Quantity Stepper & Actions */}
-            <div style={{ display: "flex", gap: "16px", marginBottom: "24px", flexWrap: "wrap" }}>
+            <div className="pdp-actions-container" style={{ display: "flex", gap: "16px", marginBottom: "24px", flexWrap: "wrap" }}>
               {/* Stepper */}
               <div style={{
                 display: "flex",
@@ -754,7 +754,7 @@ export default function ProductDetailPage() {
           overflow: "hidden",
         }}>
           {/* Tab Headers */}
-          <div style={{
+          <div className="pdp-tab-headers" style={{
             display: "flex",
             borderBottom: "1px solid var(--border-light)",
             backgroundColor: "#faf9f6",
@@ -863,7 +863,7 @@ export default function ProductDetailPage() {
             </Link>
           </div>
 
-          <div style={{
+          <div className="pdp-related-products-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
             gap: "24px",
@@ -892,12 +892,65 @@ export default function ProductDetailPage() {
 
       <style jsx>{`
         @media (max-width: 880px) {
+          .pdp-main-wrapper {
+            padding: 24px 16px 80px 16px !important;
+          }
           .pdp-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 32px !important;
+          }
+          .pdp-sticky-col {
+            position: static !important;
+          }
+          .pdp-podium {
+            min-height: 380px !important;
+            padding: 24px 16px !important;
+          }
+          .pdp-hero-image-box {
+            width: 260px !important;
+            height: 340px !important;
+            margin: 0 auto !important;
+          }
+          .pdp-tab-headers {
+            overflow-x: auto !important;
+            white-space: nowrap !important;
+            scrollbar-width: none !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+          .pdp-tab-headers button {
+            padding: 14px 18px !important;
+            font-size: 11px !important;
+            flex-shrink: 0 !important;
           }
           .specs-grid {
             grid-template-columns: 1fr !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .pdp-actions-container {
+            flex-direction: column !important;
+            gap: 10px !important;
+          }
+          .pdp-actions-container button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .pdp-related-products-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .pdp-badges-row {
+            gap: 6px !important;
+          }
+          .pdp-badge-card {
+            padding: 10px 4px !important;
+          }
+          .pdp-badge-card div {
+            font-size: 10px !important;
           }
         }
       `}</style>
